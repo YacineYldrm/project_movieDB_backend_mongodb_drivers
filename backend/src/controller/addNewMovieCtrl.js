@@ -1,11 +1,13 @@
-import { moviesServices } from "../services/index.js";
+import { services } from "../services/index.js";
 
 export const addNewMovieCtrl = async (req, res) => {
     const newMovie = req.body;
+    console.log(newMovie);
     try{
-        const addedMovie = await moviesServices.addNewMovie(newMovie);
+        const addedMovie = await services.addNewMovie(newMovie);
         res.json({success: true, result: addedMovie});
     }catch(err){
+        console.log(err);
         res.json({success: false, error: err});
     };  
 };

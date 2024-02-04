@@ -30,7 +30,6 @@ export const getById = async (collectionName, id) => {
 export const searchByKeyword = async (collectionName, userInput) => {
     const db = await getDb();
     const movie = await db.collection(collectionName).find({title: {$regex: userInput, $options: 'i'}}).toArray();
-    console.log(movie);
     return movie;
 };
 
@@ -66,4 +65,14 @@ export const editMovie = async (collectionName, document) => {
     delete document._id;
     const editedMovie = await db.collection(collectionName).findOneAndReplace({_id: ObjectId.createFromHexString(documentId)}, document, { returnDocument: "after"});
     return editedMovie;
+};
+
+// ===========================================================================
+//                              add favorites
+// ===========================================================================
+
+export const addMovieToFavorites = async (collectionName, id) => {
+    const db = await getDb();
+    const movie = await db.collection(collectionName).aggregate([{$match: {_id: ObjectId.createFromHexString(id)}}, {$merge: "favorites"}]).toArray();
+    return movie;
 };

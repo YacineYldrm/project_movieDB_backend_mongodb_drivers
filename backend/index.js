@@ -14,5 +14,6 @@ app.use(morgan("dev"));
 app.use(cors());
 
 app.use("/api/movies", router.moviesRouter );
+app.use("/api/favorites", router.favoritesRouter );
 
 app.listen(PORT, () => console.log("Server is listening at port: ", PORT));

@@ -1,0 +1,16 @@
+header{
+    background: url("./../../../public/header_bg.jpeg") center / cover no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    h1{
+        font-family: var(--headline-font-familiy);
+        font-size: 4vw;
+        color: #A16171;
+        span{
+            
+                -webkit-text-fill-color: #264653;
+                /* Will override color (regardless of order) */
+                -webkit-text-stroke: 2px #A16171;
+        }
+    }
+}

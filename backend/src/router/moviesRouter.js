@@ -1,17 +1,15 @@
 import express  from "express";
-import { moviesCtrl } from "../controller/index.js";
+import { controller } from "../controller/index.js";
 
 const moviesRouter = express.Router();
 
-moviesRouter.get("/", moviesCtrl.getAllMoviesCtrl);
+moviesRouter.get("/", controller.getAllMovies);
 
-moviesRouter.get("/search/:keyInput", moviesCtrl.searchMovieByTitleCtrl);
+moviesRouter.get("/:movieId", controller.getMovieById);
 
-moviesRouter.post("/", express.json(), moviesCtrl.addNewMovieCtrl);
+moviesRouter.get("/search/:keyInput", controller.searchMovieByTitle);
 
-moviesRouter.delete("/delete/:movieId", moviesCtrl.deleteMovieCtrl);
-
-moviesRouter.put("/edit", express.json(), moviesCtrl.editMovieCtrl)
+moviesRouter.post("/", express.json(), controller.addNewMovie);
 
 export default moviesRouter;
 

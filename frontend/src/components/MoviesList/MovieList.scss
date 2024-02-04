@@ -1,0 +1,9 @@
+.movie_gallery_wrapper {
+    padding-block: 80px;
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 4vw;
+    background-color: #0000;
+}
