@@ -13,7 +13,7 @@ const FavoriteDetails = () => {
 
     useEffect(() => {
         const fetchRequest = async (id) => {
-            const response = await fetch(`http://localhost:3001/api/favorites/${id}`);
+            const response = await fetch(import.meta.env.VITE_API_URL + `/api/favorites/${id}`);
             const result = await response.json()
             setMovie(result.result);
             setMovieLoaded(!movieLoaded)
@@ -37,7 +37,7 @@ const FavoriteDetails = () => {
 
     // remove from favorites
     const removeHandler = async () => {
-        const response = await fetch(`http://localhost:3001/api/favorites/delete/${movie?._id}`, {
+        const response = await fetch(import.meta.env.VITE_API_URL + `/api/favorites/delete/${movie?._id}`, {
             method: "DELETE"
         });
         const result = await response.json();

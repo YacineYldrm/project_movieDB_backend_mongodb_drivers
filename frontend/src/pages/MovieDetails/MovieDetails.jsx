@@ -13,7 +13,7 @@ const MovieDetails = () => {
 
     useEffect(() => {
         const fetchRequest = async (id) => {
-            const response = await fetch(`http://localhost:3001/api/movies/${id}`);
+            const response = await fetch(import.meta.env.VITE_API_URL + `/api/movies/${id}`);
             const result = await response.json()
             setMovie(result.result);
             setMovieLoaded(!movieLoaded)
@@ -37,7 +37,7 @@ const MovieDetails = () => {
 
     // add movie to favorites
     const addToFavorites = async () => {
-        const response = await fetch(`http://localhost:3001/api/favorites/${movie?._id}`, {
+        const response = await fetch(import.meta.env.VITE_API_URL + `/api/favorites/${movie?._id}`, {
             method: 'PATCH'
         });
         const result = await response.json();

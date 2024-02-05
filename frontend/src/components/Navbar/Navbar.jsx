@@ -10,7 +10,7 @@ const Navbar = ({ src, setMovies }) => {
 
     const handleTitleSearch = async () => {
         if (keyInput.length > 1) {
-            const response = await fetch(`http://localhost:3001/api/movies/search/${keyInput}`);
+            const response = await fetch(import.meta.env.VITE_API_URL + `/api/movies/search/${keyInput}`);
             const result = await response.json();
             setMovies(result.result);
             setKeyInput('')

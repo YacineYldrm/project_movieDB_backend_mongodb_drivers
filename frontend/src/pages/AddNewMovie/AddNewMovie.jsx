@@ -11,7 +11,7 @@ const AddNewMovie = () => {
 
     // add new movie to database (collection: movies)
     const submitNewMovie = async () => {
-        const response = await fetch('http://localhost:3001/api/movies', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/api/movies', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newMovie)

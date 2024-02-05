@@ -8,7 +8,7 @@ const Favorites = () => {
 
     useEffect(() => {
         const fetchRequest = async () => {
-            const response = await fetch('http://localhost:3001/api/favorites');
+            const response = await fetch(import.meta.env.VITE_API_URL + '/api/favorites');
             const result = await response.json();
             setMovies(result.result);
         };

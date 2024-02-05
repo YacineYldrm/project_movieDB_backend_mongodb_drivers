@@ -9,7 +9,7 @@ const MovieEditor = ({ movie }) => {
     }, [editedMovie]);
 
     const submitEditedMovie = async () => {
-        await fetch('http://localhost:3001/api/favorites/edit', {
+        await fetch(import.meta.env.VITE_API_URL + '/api/favorites/edit', {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(editedMovie)

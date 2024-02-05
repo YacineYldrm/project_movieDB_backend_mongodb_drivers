@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import MovieList from '../../components/MoviesList/MovieList';
-import './Home.scss'
+import './Home.scss'   
 
 const Home = () => {
 
@@ -9,7 +9,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchRequest = async () => {
-            const response = await fetch('http://localhost:3001/api/movies');
+            const response = await fetch(import.meta.env.VITE_API_URL + '/api/movies');
             const result = await response.json();
             setMovies(result.result);
         };

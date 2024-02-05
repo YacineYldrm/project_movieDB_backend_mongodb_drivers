@@ -23,7 +23,7 @@ const MovieCard = ({id, poster, title, director, src}) => {
     // remove from favorites
 
     const removeHandler = async () => {
-        const response = await fetch(`http://localhost:3001/api/favorites/delete/${id}`, {
+        const response = await fetch(import.meta.env.VITE_API_URL + `/api/favorites/delete/${id}`, {
             method: "DELETE"
         });
         const result = await response.json();
